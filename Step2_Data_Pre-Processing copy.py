@@ -1,5 +1,5 @@
 #USING THIS GUIDE https://medium.com/nerd-for-tech/step-by-step-guide-to-twitter-sentiment-analysis-bc250caf3a3c
-# SENTIMENT ANALYSIS
+# Pre-processing the data
 
 #!pip3 install twint nest_asyncio
 #!pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
