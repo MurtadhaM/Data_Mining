@@ -98,8 +98,6 @@ data = clean_data(text.split(' '))
 # tokens = tokenize(text)
 #filtered_sentence = stopwords(tokens)
 #filtered_sentence_text = ' '.join(filtered_sentence)
-#lemma_words = lemmatize_text(text)
-#test = clean_data(lemma_words)
-
-print(data)
+lemma_words = lemmatize_text(text)
+print(lemma_words)
 

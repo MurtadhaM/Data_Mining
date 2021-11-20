@@ -36,6 +36,7 @@ with open('text_data.json') as f:
         text_str += line
     text = text_str
         
+
 print(text)
 
 #Tokenization (2pt)
@@ -98,8 +99,6 @@ data = clean_data(text.split(' '))
 # tokens = tokenize(text)
 #filtered_sentence = stopwords(tokens)
 #filtered_sentence_text = ' '.join(filtered_sentence)
-#lemma_words = lemmatize_text(text)
-#test = clean_data(lemma_words)
-
-print(data)
+lemma_words = lemmatize_text(tokenize(data))
+print(lemma_words)
 

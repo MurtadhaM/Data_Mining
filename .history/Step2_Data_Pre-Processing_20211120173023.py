@@ -101,5 +101,5 @@ data = clean_data(text.split(' '))
 #lemma_words = lemmatize_text(text)
 #test = clean_data(lemma_words)
 
-print(data)
+print(test)
 

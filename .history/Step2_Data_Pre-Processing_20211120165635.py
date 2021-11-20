@@ -20,7 +20,7 @@ import pyLDAvis.sklearn
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
-import json
+
 # This Needs The Tweet Data Exported From Part 1 File to a text_data.json file in the same directory
 # Pre-processing the tweets/articles
 
@@ -31,12 +31,6 @@ import json
 # read the data from a file
 with open('text_data.json') as f:
     text = f.read()
-    text_str = ''
-    for line in json.loads(text):
-        text_str += line
-    text = text_str
-        
-print(text)
 
 #Tokenization (2pt)
 def tokenize(text):
@@ -79,27 +73,24 @@ def clean_data(text):
     # Lowercase words
     clean_data = [str(word).lower() for word in text]
     # Eliminate StopWords
-    stop_words = set(nltk.corpus.stopwords.words('english'))
-    clean_data  = " ".join([word for word in str(text).split() if word not in stop_words])
+    clean_data = [stopwords_elimination(word) for word in text]
     # Eliminates Emails
-    clean_data = [re.sub(r'\S*@\S*\s?', '', str(word)) for word in text]
+    clean_data = [re.sub(r'\S*@\S*\s?', '', str(review)) for word in text]
     # Eliminate new line
     clean_data = [re.sub(r'\s+', ' ', str(word)) for word in text]
     # Eliminate single quotes
     clean_data = [re.sub("\'", "", word) for word in text]
     # Eliminates words where len(word) < 3
-    clean_data = [' '.join([word for word in word.split() if len(word)>4]) for word in text]
+    clean_data = [' '.join([word for word in review.split() if len(word)>2]) for word in text]
     return clean_data
 
 
-data = clean_data(text.split(' '))
+
 
 
 # tokens = tokenize(text)
 #filtered_sentence = stopwords(tokens)
 #filtered_sentence_text = ' '.join(filtered_sentence)
-#lemma_words = lemmatize_text(text)
-#test = clean_data(lemma_words)
-
-print(data)
+#lemma_words = lemmatize_text(filtered_sentence_text)
+print(clean_data(text))
 
