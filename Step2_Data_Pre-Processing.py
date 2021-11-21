@@ -14,6 +14,7 @@ nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('stopwords')
 import re
+import pandas as pd
 import pyLDAvis
 from imp import reload
 import pyLDAvis.sklearn
@@ -91,15 +92,45 @@ def clean_data(text):
     clean_data = [' '.join([word for word in word.split() if len(word)>4]) for word in text]
     return clean_data
 
+def data_cleaning(df_tweets):
+    '''Clean the Tweets'''
+    # convert to lower case
+    df_tweets['clean_text'] = df_tweets['tweets'].str.lower()
+    # Remove punctuations
+    df_tweets['clean_text'] = df_tweets['clean_text'].str.replace('[^\w\s]',' ')
+    # Remove spaces in between words
+    df_tweets['clean_text'] = df_tweets['clean_text'].str.replace(' +', ' ')
+    # Remove Numbers
+    df_tweets['clean_text'] = df_tweets['clean_text'].str.replace('\d+', '')
+    # Remove trailing spaces
+    df_tweets['clean_text'] = df_tweets['clean_text'].str.strip()
 
-data = clean_data(text.split(' '))
+    df_tweets['clean_text'] = df_tweets['clean_text'].str.strip()
+    # Remove URLS
+    # remove stop words
+    stop = stopwords('english')
+    stop.extend(["amp","https","co","rt","new","let","also","still","one","people","gt"])
+    df_tweets['clean_text'] =  df_tweets['clean_text'].apply(lambda x: " ".join(x for x in x.split() if x not in stop ))
+    return df_tweets
 
 
+df = pd.DataFrame([])
+df['tweets'] = ''
+df['clean_text'] = ''
+
+df['tweets'] = ([tweet for tweet in text.split(' ')])
+print(df)
+
+print(df)
 # tokens = tokenize(text)
 #filtered_sentence = stopwords(tokens)
 #filtered_sentence_text = ' '.join(filtered_sentence)
 #lemma_words = lemmatize_text(text)
 #test = clean_data(lemma_words)
+data = data_cleaning(df)
+# 
+for word in df['tweets'] :
+    print(word)
 
-print(data)
-
+for word in df['clean_text'] :
+    print(word)
