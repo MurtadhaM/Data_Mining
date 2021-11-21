@@ -1,88 +1,99 @@
-from transformers import pipeline
-from transformers import BertModel, BertTokenizer, AdamW, get_linear_schedule_with_warmup
-import tensorflow_datasets as tfds
-import torch
+from nltk import tokenize
+import pandas as pd
+
 import numpy as np
 
+import re
+
+import string
+
+from nltk.corpus import stopwords
+
+from nltk.tokenize import word_tokenize
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+from sklearn.model_selection import train_test_split
+
+from nltk.stem import PorterStemmer
+
+from nltk.stem import WordNetLemmatizer
+
+# ML Libraries
+
+from sklearn.metrics import accuracy_score
+
+from sklearn.naive_bayes import MultinomialNB
+
+from sklearn.linear_model import LogisticRegression
+
+from sklearn.svm import SVC
+
 import pandas as pd
-import tensorflow.compat.v2 as tf  
-import seaborn as sns
-import matplotlib.pyplot as plt
-from pylab import rcParams
-sns.set(style='whitegrid', palette='muted', font_scale=1)
+# Global Parameters
 
-HAPPY_COLORS_PALETTE = ["#01BEFE", "#FFDD00", "#FF7D00", "#FF006D", "#ADFF02", "#8F00FF"]
-from transformers import AutoModelForSequenceClassification, AutoTokenizer, pipeline
-sns.set_palette(sns.color_palette(HAPPY_COLORS_PALETTE))
-ds = tfds.load(twint.output.panda.Tweets_df)
-assert isinstance(ds, tf.data.Dataset)
+stop_words = set(stopwords.words('english'))
 
-def to_sentiment(rating):
+
+def get_feature_vector(train_fit):
     
-  rating = int(rating)
+    vector = TfidfVectorizer(sublinear_tf=True)
 
-  if rating <= 2:
+    vector.fit(train_fit)
 
-    return 0
+    return vector
 
-  elif rating == 3:
+    
+data = pd.read_csv('/Users/m/Documents/GitHub/Data_Mining/data/Complete.csv')
+df = pd.DataFrame(data)
+ct = df['cleaned_tweets']
 
-    return 1
+#df.head()
 
-  else:
+print(df['cleaned_tweets'])
+#print(data)
 
-    return 2
+text = data.tweet
+    
 
+from sklearn.feature_extraction.text import CountVectorizer
 
-import twint
-# Set up TWINT config
-c = twint.Config()
-c.Search = "#death"
-# Custom output format
-c.Limit = 1
-c.Pandas = True
-c.Store_csv = True
-c.Output = "tweets.csv"
-c.Pretty = True
+# the vectorizer object will be used to transform text to vector form
+vectorizer = CountVectorizer(max_df=0.9, min_df=12, token_pattern='\w+|\$[\d\.]+|\S+')# make a new column with only the popular hashtags
+tf = vectorizer.fit_transform(df['tweet']).toarray()
+print(tf)
+tf_feature_names = vectorizer.get_feature_names()
 
-twint.run.Search(c)
+# apply transformation
 
-def column_names():
-    return twint.storage.panda.Tweets_df.columns
-def twint_to_pd(columns):
-    return twint.storage.panda.Tweets_df[columns]
-
-column_names()
-tweet_df = twint_to_pd(column_names())
-print(len(tweet_df))
-nlp = pipeline('sentiment-analysis')
-
-df = twint.output.panda.Tweets_df[column_names()]
-df['sentiment'] = 1
-
-df['sentiment'] = df['sentiment'].apply(to_sentiment)
-
-df['sentiment_str'] = df['sentiment'].map({0: 'Negative', 1: 'Neutral', 2: 'Positive'})
-
-df['sentiment_color'] = df['sentiment'].map({0: 'red', 1: 'blue', 2: 'green'})
+#tf = vectorizer.fit_transform(df['tweet']).toarray
+# tf_feature_names tells us what word each column in the matric represents
+tf_feature_names = vectorizer.get_feature_names()
 
 
 
+from sklearn.decomposition import LatentDirichletAllocation
+
+number_of_topics = 9
+print(tf_feature_names)
+model = LatentDirichletAllocation(n_components=number_of_topics, random_state=0)
+model.fit(tf)
 
 
 
-
-
+def display_topics(model, feature_names, no_top_words):
+    topic_dict = {}
+    for topic_idx, topic in enumerate(model.components_):
+        topic_dict["Topic %d words" % (topic_idx)]= ['{}'.format(feature_names[i])
+                        for i in topic.argsort()[:-no_top_words - 1:-1]]
+        topic_dict["Topic %d weights" % (topic_idx)]= ['{:.1f}'.format(topic[i])
+                        for i in topic.argsort()[:-no_top_words - 1:-1]]
+    return pd.DataFrame(topic_dict)
 
 
 
 
+no_top_words = 10
 
-
-
-sns.countplot(data=df, palette=HAPPY_COLORS_PALETTE)
-
-plt.xlabel('tweet');
-plt.ylabel('count');
-plt.title('sentiment');
-plt.show()
+test = display_topics(model, tf_feature_names, no_top_words)
+print(test)
