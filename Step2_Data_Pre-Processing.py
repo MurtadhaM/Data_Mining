@@ -4,7 +4,8 @@
 # Assignment: Social Media Analysis
 
 import spacy
-import nltk
+import nltk 
+import codecs
 from nltk.stem import WordNetLemmatizer
 nltk.download('wordnet')
 from nltk.corpus import wordnet
@@ -26,7 +27,6 @@ import json
 # Pre-processing the tweets/articles
 
 ### Step 2: Pre-processing the tweets/articles (8pts total) ####
-
 
 
 # read the data from a file
@@ -134,3 +134,5 @@ for word in df['tweets'] :
 
 for word in df['clean_text'] :
     print(word)
+
+

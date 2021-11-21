@@ -25,6 +25,8 @@ final_df['Polarity'] = (textblob['tweet'].map(lambda tweet: TextBlob(tweet).sent
 final_df["Sentiment"] = final_df["Polarity"].map(lambda pol: '+' if pol > 0 else '-')
 positive = final_df[final_df.Sentiment == "+"].count()["tweet"]
 negative = final_df[final_df.Sentiment == "-"].count()["tweet"]
+
+final_df.show()
 print(final_df)
 
 
