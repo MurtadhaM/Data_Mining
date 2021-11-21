@@ -84,8 +84,10 @@ def lemmatize_text(input):
 
 def clean_tweets_tb(input):
     text = str(input)
-    text = re.sub(r'https?://\S+', '', text)  
+    text = re.sub(r'https?://\S+', '', text)
+    text = re.sub("@[A-Za-z0-9]+","",text) 
     text = re.sub(r"@[A-Za-z0-9]+", "", text)  
+    text = re.sub(r"(?:\@|http?\://|https?\://|www)\S+", "", text)
     text = re.sub(r"_[A-Za-z0-9]+", "", text)  
     text = re.sub(r"__", "", text)  
     text = re.sub(' +', ' ', text)  
