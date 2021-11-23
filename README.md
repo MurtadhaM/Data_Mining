@@ -24,7 +24,7 @@ Farley, Douglas</li>
   <td><a href="https://pandas.pydata.org/">Pandas</a></td> 
     <tr>
    <td> Important Step: Topic Modeling</td> 
-  <td><a href="https://scikit-learn.org/stable/model_selection.html#model-selection/">Pandas</a></td> 
+  <td><a href="https://scikit-learn.org/stable/model_selection.html#model-selection/">pyldavis</a></td> 
          </tr>      
  </tr>
  </tr>                </table>             </td>          </tr>                 </table>
