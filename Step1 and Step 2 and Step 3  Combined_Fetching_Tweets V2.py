@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3.9
+
 # Author: Murtadha Marzouq
 # Date:   12/10/2021
 # Time:   12:00 PM
@@ -9,6 +11,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import re
 import os
 import textblob
+import  sklearn
 import pandas as pd
 import matplotlib.pyplot as plt
 import twint
@@ -163,5 +166,6 @@ except Exception as e:
 
 # Writing The  Combined File
 df.to_csv('data/Complete.csv')
+
 
 
