@@ -22,8 +22,9 @@ Farley, Douglas</li>
  <tr>
  <td> Step 3: Data analysis and visualization</td> 
   <td><a href="https://pandas.pydata.org/">Pandas</a></td> 
+    <tr>
    <td> Important Step: Topic Modeling</td> 
   <td><a href="https://scikit-learn.org/stable/model_selection.html#model-selection/">Pandas</a></td> 
-              
+         </tr>      
  </tr>
  </tr>                </table>             </td>          </tr>                 </table>
