@@ -121,9 +121,10 @@ def apply_preprocessing():
 
 # Applying PreProcessing
 output = apply_preprocessing()
-df['cleaned_tweets'] = tweets['tweet_tb']
+
+df['cleaned_tweets'] = tweets['tweet_tb'].values
 #Printing
-tweets['tweet_tb'].apply(print)
+#tweets['tweet_tb'].apply(print)
 
 # Dumping the cleaned tweets to a CSV file
 df.to_csv('data/cleaned_tweets.csv')
@@ -166,6 +167,6 @@ except Exception as e:
 
 # Writing The  Combined File
 df.to_csv('data/Complete.csv')
-
+#print(df['cleaned_tweets'].values)
 
 

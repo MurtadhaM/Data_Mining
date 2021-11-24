@@ -30,12 +30,8 @@ import json
 
 
 # read the data from a file
-with open('text_data.json') as f:
-    text = f.read()
-    text_str = ''
-    for line in json.loads(text):
-        text_str += line
-    text = text_str
+df = pd.read_csv('data/Complete500.csv')#getting rid of null values
+text  = df['cleaned_tweets'].values
         
 print(text)
 
@@ -114,25 +110,27 @@ def data_cleaning(df_tweets):
     return df_tweets
 
 
-df = pd.DataFrame([])
 df['tweets'] = ''
 df['clean_text'] = ''
 
-df['tweets'] = ([tweet for tweet in text.split(' ')])
-print(df)
-
-print(df)
+df['tweets'] = pd.read_csv('data/Complete500.csv')['tweet']
+#print(df)
+#print(df)
 # tokens = tokenize(text)
 #filtered_sentence = stopwords(tokens)
 #filtered_sentence_text = ' '.join(filtered_sentence)
 #lemma_words = lemmatize_text(text)
 #test = clean_data(lemma_words)
 data = data_cleaning(df)
+print(data)
 # 
-for word in df['tweets'] :
-    print(word)
 
-for word in df['clean_text'] :
-    print(word)
+words = []
+for word in data['clean_text'] :
+    for w in word.split(' '):
+        words.append(w)
+print(words)
+#for word in df['clean_text'] :
+ #   print(word)
 
 
