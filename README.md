@@ -19,7 +19,7 @@ Farley, Douglas</li>
 <h2><b>Resources Used:</b></h2>
 <ol>
 <li>
-<h1> https://github.com/twintproject/twint/wiki/Configuration </h1>
+<p> https://github.com/twintproject/twint/wiki/Configuration </p>
 </li>
 </ol>
 
