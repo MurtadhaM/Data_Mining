@@ -172,6 +172,11 @@ def sentiment_analysis(tweet):
     print('Calculating Sentiment...')
     tweet['Polarity'] = (tweet['tweet'].map(
         lambda tweet: TextBlob(tweet).sentiment.polarity))
+    
+    tweet['Subjectivity'] = (tweet['tweet'].map(
+        lambda tweet: TextBlob(tweet).sentiment.subjectivity))
+    
+
     tweet["Sentiment"] = tweet["Polarity"].map(
         lambda pol: '+' if pol > 0 else '-')
     positive = tweet[tweet.Sentiment == "+"].count()["tweet"]
@@ -224,5 +229,5 @@ sns.distplot(df_res_pandas['Polarity'])
 
 sns.set(rc={'figure.figsize':(11.7,8.27)})
 plt.title('Distribution of Polarity of Tweets using a Search Term: ' + search_term)
-plt.show()
+#plt.show()
 
