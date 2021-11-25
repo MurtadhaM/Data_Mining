@@ -21,6 +21,17 @@ Farley, Douglas</li>
 <li>
 <p> https://github.com/twintproject/twint/wiki/Configuration </p>
 </li>
+
+<li>
+<p> https://health-tweets-topics.herokuapp.com/ </p>
+</li>
+
+<li>
+<p> https://pub.towardsai.net/tweet-topic-modeling-part-3-using-short-text-topic-modeling-on-tweets-bc969a827fef </p>
+</li>
+
+
+
 </ol>
 
 
