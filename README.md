@@ -17,6 +17,7 @@ Farley, Douglas</li>
 </ol>                    
 </div>
 
+<h2>Note:</h2> <b> Run The Analysis Python File</b>
 
  <table border="1" width = "100%">                    <tr>             <td>                <table border = "1" width = "100%">                   <tr>                      <th>Task</th>                      <th>Framework</th>                   </tr>                   <tr>                      <td>Step 1: Loading data</td>                      <td><a href="https://github.com/twintproject/twint">Twint</a></td>                   </tr>                   <tr>                      <td>Step 2: Pre-processing the tweets/articles </td>                      <td><a href="https://spacy.io/usage/v3-2">SpaCy</a></td>   
  <tr>
@@ -29,4 +30,3 @@ Farley, Douglas</li>
  </tr>
  </tr>                </table>             </td>          </tr>                 </table>
 
-<h2>Note:</h2> <b> Run The Analysis Python File</b>
