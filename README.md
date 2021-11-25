@@ -34,8 +34,8 @@ Farley, Douglas</li>
   <h1 class="page-title">Tentative Description</h1>
   
   
-  
-<p>Step 1: Loading data (3 pts)</p>
+
+<p><strong>Step 1: Loading data (3 pts)</strong></p>
 <p>Successfully load the data you choose to analyze into memory.</p>
 <p><strong>Step 2: Pre-processing the tweets/articles (8pts total)</strong></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can use NLTK or SpaCy (highly recommended) for this task.</p>
