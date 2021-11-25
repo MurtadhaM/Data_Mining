@@ -16,23 +16,7 @@ Farley, Douglas</li>
 </li>
 </ol>                    
 </div>
-<h2><b>Resources Used:</b></h2>
-<ol>
-<li>
-<p> https://github.com/twintproject/twint/wiki/Configuration </p>
-</li>
 
-<li>
-<p> https://health-tweets-topics.herokuapp.com/ </p>
-</li>
-
-<li>
-<p> https://pub.towardsai.net/tweet-topic-modeling-part-3-using-short-text-topic-modeling-on-tweets-bc969a827fef </p>
-</li>
-
-
-
-</ol>
 
 
 
@@ -53,7 +37,23 @@ Farley, Douglas</li>
   <h1 class="page-title">Tentative Description</h1>
   
   
+<h2><b>Resources Used:</b></h2>
+<ol>
+<li>
+<p> https://github.com/twintproject/twint/wiki/Configuration </p>
+</li>
 
+<li>
+<p> https://health-tweets-topics.herokuapp.com/ </p>
+</li>
+
+<li>
+<p> https://pub.towardsai.net/tweet-topic-modeling-part-3-using-short-text-topic-modeling-on-tweets-bc969a827fef </p>
+</li>
+
+
+
+</ol>
 <p><strong>Step 1: Loading data (3 pts)</strong></p>
 <p>Successfully load the data you choose to analyze into memory.</p>
 <p><strong>Step 2: Pre-processing the tweets/articles (8pts total)</strong></p>
