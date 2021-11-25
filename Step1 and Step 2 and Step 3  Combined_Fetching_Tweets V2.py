@@ -4,7 +4,7 @@
 # Date:   12/10/2021
 # Time:   12:00 PM
 # Assignment: Social Media Analysis
-#pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+# pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
 import codecs
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
@@ -13,7 +13,7 @@ import re
 import os
 import textblob
 from textblob import TextBlob, Word
-import  sklearn
+import sklearn
 import pandas as pd
 import matplotlib.pyplot as plt
 import twint
@@ -33,36 +33,35 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 os.getcwd()
 nlp = spacy.load('en_core_web_sm')
-import spacy
+
+
 # Setting up the Tweepy API to pull tweets
-#
-c = twint.Config()
-c.To = '#DeathPenalty'
-c.Limit = 5
-c.Store_csv = True
-c.Output = 'data/output.csv'
-c.Pandas = True
-twint.run.Search(c)
-c.Limit = 1
-df = twint.storage.panda.Tweets_df
-print(df)
-df.head()
-df['language'].value_counts()
-df = df[df['language'] == 'en']
+def run_twint():
+    #
+    c = twint.Config()
+    c.To = '#DeathPenalty'
+    c.Limit = 5
+    c.Store_csv = True
+    c.Output = 'data/output.csv'
+    c.Pandas = True
+    twint.run.Search(c)
+    c.Limit = 1
+    df = twint.storage.panda.Tweets_df
+    # print(df)
+    df.head()
 
-# Step 1: Fetching Tweets
-tweets = df[['tweet']]
+    # Step 1: Fetching Tweets
+    tweets = df[['tweet']]
+    return df
+
+# setting up global variables
 
 
-
-
-
-# Cleaning the tweets Step 2 
+# Cleaning the tweets Step 2
 
 def write_tweets_to_text_file(text_data):
     with open('text_data.txt', 'wb') as f:
         f.write(text_data, codecs.getwriter('utf-8')(f), ensure_ascii=False)
-
 
 
 # Tokenization (2pt)
@@ -91,40 +90,43 @@ def lemmatize_text(input):
     wordnet_tokens = pos_tag_wordnet(tagged_tokens)
     lemmatized_text = [wnl.lemmatize(word, pos)
                        for word, pos in wordnet_tokens]
-    
+
     print(lemmatized_text)
     return lemmatized_text
 
 # lemmatization (2pt) Method #2 TESTED
+
+
 def lem(text):
-    # print('Before Lems: '+ text) 
+    # print('Before Lems: '+ text)
     doc = nlp(u'{}'.format(text))
     tokens = []
     for token in doc:
         tokens.append(token)
     lemmatized_sentence = " ".join([token.lemma_ for token in doc])
-    # print('After Lems: '+ lemmatized_sentence) 
+    # print('After Lems: '+ lemmatized_sentence)
 
     print(lemmatized_sentence)
-    
-    
+
+
 # Cleaning the tweets Step 2
 def clean_tweets_tb(input):
     text = str(input)
     text = re.sub(r'https?://\S+', '', text)
-    text = re.sub("@[A-Za-z0-9]+","",text) 
-    text = re.sub(r"@[A-Za-z0-9]+", "", text)  
+    text = re.sub("@[A-Za-z0-9]+", "", text)
+    text = re.sub(r"@[A-Za-z0-9]+", "", text)
     text = re.sub(r"(?:\@|http?\://|https?\://|www)\S+", "", text)
-    text = re.sub(r"_[A-Za-z0-9]+", "", text)  
-    text = re.sub(r"__", "", text)  
-    text = re.sub(' +', ' ', text)  
+    text = re.sub(r"_[A-Za-z0-9]+", "", text)
+    text = re.sub(r"__", "", text)
+    text = re.sub(' +', ' ', text)
     text = "".join([char for char in text if char not in string.punctuation])
     text = text.lower()  # Lower text
     return text
 
 # Applying PreProcessing
 
-def apply_preprocessing():
+
+def apply_preprocessing(tweets):
     tweets['tweet_tb'] = tweets['tweet'].apply(clean_tweets_tb)
     tweets['cleaned_tweets'] = tweets['tweet'].apply(clean_tweets_tb)
 
@@ -133,62 +135,43 @@ def apply_preprocessing():
                 "also", "still", "one", "people", "gt"])
     tweets['cleaned_tweets'] = tweets['tweet_tb'].apply(
         lambda x: " ".join(x for x in str(x).split() if x not in stop))
-    tweets['cleaned_tweets'] = tweets['tweet_tb'].apply(lambda x:   lem(x))
-
+    tweets['cleaned_tweets'] = tweets['cleaned_tweets'].apply(lambda x:   lem(x))
     print(tweets['tweet_tb'])
     return tweets
 
-# Applying PreProcessing
-
-outputText = apply_preprocessing()
-# WORKED
-print(df)
-
-
-df['cleaned_tweets'] = tweets['tweet_tb']
-#Printing
-print(df)
-# Dumping the cleaned tweets to a CSV file
-df.to_csv('data/cleaned_tweets.csv')
 
 # Sentiment Analysis Part 3
 # Preparing the Data
 
-textblob = pd.read_csv('data/cleaned_tweets.csv')
-textblob = pd.DataFrame(textblob)
+    # Sentiment Analysis Part 3
+    # This function is used to calculate the sentiment score of the tweets
+    # -.1 or less if the tweet is negative
+    # 0 if the tweet is neutral
+    # .1 or more if the tweet is positive
 
-# Sentiment Analysis Part 3
-# This function is used to calculate the sentiment score of the tweets 
-# -.1 or less if the tweet is negative
-# 0 if the tweet is neutral
-# .1 or more if the tweet is positive
-
-def sentiment_analysis(text):
-    blob = TextBlob(text)
-    print(blob.polarity)
-    print("The test case is '" + text + "' and the sentiment calculation is" + str(blob.sentiment))
-    return blob.sentiment 
-
-
-# Sentiment Modeling Part 4 Required Visualization
-final_df = pd.DataFrame(columns=['UserID', 'Sentiment', 'Polarity'])
-final_df['UserID'] = df['username']
-final_df['Polarity'] = (textblob['cleaned_tweets'].map(lambda tweet: TextBlob(tweet).sentiment.polarity))
-final_df["Sentiment"] = final_df["Polarity"].map(lambda pol: '+' if pol > 0 else '-')
-# 
+def sentiment_analysis(tweet):
+    tweet['Polarity'] = (tweet['tweet'].map(
+        lambda tweet: TextBlob(tweet).sentiment.polarity))
+    tweet["Sentiment"] = tweet["Polarity"].map(
+        lambda pol: '+' if pol > 0 else '-')
+    positive = tweet[tweet.Sentiment == "+"].count()["tweet"]
+    negative = tweet[tweet.Sentiment == "-"].count()["tweet"]
+    tweet["Sentiment"] = tweet["Polarity"].map(
+        lambda pol: 'positive' if pol > 0 else 'negative' if pol < 0 else 'neutral')
+   
+    return tweet
 
 
-print(final_df)
-# Updating the Data Frame
-try:
-    df['Polarity'] = (textblob['cleaned_tweets'].map(lambda tweet: TextBlob(tweet).sentiment.polarity))
-    df["Sentiment"] = df["Polarity"].map(lambda pol: 'positive' if pol > .1  else 'negative' if pol < -.1      else 'neutral') 
-except Exception as e:
-    print(e)
-    
+def main():
+    # Applying PreProcessing
+    df = run_twint()
+    tweets = df[['tweet']]
+    tweets = apply_preprocessing(tweets)
+    df['cleaned_tweets'] = tweets['tweet_tb']
+    # Dumping the cleaned tweets to a CSV file
+    return sentiment_analysis(df)
 
+
+final_ouput = main()
 # Writing The  Combined File
-df.to_csv('data/Complete.csv')
-
-
-
+final_ouput.to_csv('./data/Complete.csv')
