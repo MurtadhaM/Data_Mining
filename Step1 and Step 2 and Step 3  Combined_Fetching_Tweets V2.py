@@ -5,12 +5,14 @@
 # Time:   12:00 PM
 # Assignment: Social Media Analysis
 #pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+import codecs
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import re
 import os
 import textblob
+from textblob import TextBlob, Word
 import  sklearn
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -30,8 +32,8 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 os.getcwd()
-
-
+nlp = spacy.load('en_core_web_sm')
+import spacy
 # Setting up the Tweepy API to pull tweets
 #
 c = twint.Config()
@@ -82,15 +84,30 @@ def pos_tag_wordnet(tagged_tokens):
     return new_tagged_tokens
 
 
-# lemmatization (2pt)
+# lemmatization (2pt) Method #1
 def lemmatize_text(input):
     tagged_tokens = nltk.pos_tag(
         nltk.word_tokenize(input))  # Positonal tagging
     wordnet_tokens = pos_tag_wordnet(tagged_tokens)
     lemmatized_text = [wnl.lemmatize(word, pos)
                        for word, pos in wordnet_tokens]
+    
+    print(lemmatized_text)
     return lemmatized_text
 
+# lemmatization (2pt) Method #2 TESTED
+def lem(text):
+    # print('Before Lems: '+ text) 
+    doc = nlp(u'{}'.format(text))
+    tokens = []
+    for token in doc:
+        tokens.append(token)
+    lemmatized_sentence = " ".join([token.lemma_ for token in doc])
+    # print('After Lems: '+ lemmatized_sentence) 
+
+    print(lemmatized_sentence)
+    
+    
 # Cleaning the tweets Step 2
 def clean_tweets_tb(input):
     text = str(input)
@@ -108,24 +125,29 @@ def clean_tweets_tb(input):
 # Applying PreProcessing
 
 def apply_preprocessing():
-    #tweets['tweet_tb'] = tweets['tweet'].apply(tokenize)
-    tweets['tweet_tb'] = tweets['tweet'].apply(lambda x: x.split(' ')) #tokenize the tweets manually
-    tweets['tweet_tb'] = tweets['tweet_tb'].apply(clean_tweets_tb)
-    tweets['tweet_tb'] = tweets['tweet_tb'].apply(lambda x: lemmatize_text(x))
+    tweets['tweet_tb'] = tweets['tweet'].apply(clean_tweets_tb)
+    tweets['cleaned_tweets'] = tweets['tweet'].apply(clean_tweets_tb)
+
     stop = nltk.corpus.stopwords.words('english')
     stop.extend(["amp", "https", "co", "rt", "new", "let",
                 "also", "still", "one", "people", "gt"])
-    tweets['tweet_tb'] = tweets['tweet_tb'].apply(
+    tweets['cleaned_tweets'] = tweets['tweet_tb'].apply(
         lambda x: " ".join(x for x in str(x).split() if x not in stop))
+    tweets['cleaned_tweets'] = tweets['tweet_tb'].apply(lambda x:   lem(x))
+
+    print(tweets['tweet_tb'])
     return tweets
 
 # Applying PreProcessing
-output = apply_preprocessing()
 
-df['cleaned_tweets'] = tweets['tweet_tb'].values
+outputText = apply_preprocessing()
+# WORKED
+print(df)
+
+
+df['cleaned_tweets'] = tweets['tweet_tb']
 #Printing
-#tweets['tweet_tb'].apply(print)
-
+print(df)
 # Dumping the cleaned tweets to a CSV file
 df.to_csv('data/cleaned_tweets.csv')
 
@@ -167,6 +189,6 @@ except Exception as e:
 
 # Writing The  Combined File
 df.to_csv('data/Complete.csv')
-#print(df['cleaned_tweets'].values)
+
 
 
