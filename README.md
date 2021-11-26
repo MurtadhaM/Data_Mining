@@ -42,6 +42,9 @@ Farley, Douglas</li>
 <li>
 <p> https://github.com/twintproject/twint/wiki/Configuration </p>
 </li>
+<li>
+<p>https://medium.com/@pragya_paudyal/scraping-tweet-using-twint-and-analyzing-with-nlp-932e01ad5587</p>
+</li>
 
 <li>
 <p> https://health-tweets-topics.herokuapp.com/ </p>

@@ -114,7 +114,7 @@ def lem(text):
     tokens = []
     for token in doc:
         tokens.append(token)
-    lemmatized_sentence = " ".join([token.lemma_ for token in doc])
+    lemmatized_sentence = " ".join([token.lemma_ for token in doc if len(token) >  3 ])
     return lemmatized_sentence
 
 
@@ -131,6 +131,8 @@ def clean_tweets_tb(input):
     text = re.sub(' +', ' ', text)
     text = re.sub('[' + punctuation + ']+', ' ', text)  # strip punctuation
     text = re.sub('\s+', ' ', text)  # remove double spacing
+    text = re.sub('’', ' ', text)  # remove apostrophe'
+    text = re.sub('\'', ' ', text)  # remove double spacing
     text = re.sub('([0-9]+)', '', text)  # remove numbers
     text = "".join([char for char in text if char not in string.punctuation])
     text = text.lower()  # Lower text
@@ -202,20 +204,26 @@ def main():
     # # Sperator
     # print('\n')
     # print('\n')
+    # Removing short words
+    tweets['cleaned_tweets']= tweets['cleaned_tweets'].apply(lambda x: " ".join ([w for w in x.split() if len (w)>3]))
     # Getting the sentiment score of the tweets after preprocessing
+    
     after_preprocessing_sentiment = sentiment_analysis(tweets)
     # print('Sentiment: ' + after_preprocessing_sentiment['Sentiment'].astype(str) + " Polorization: " + after_preprocessing_sentiment['Polarity'].astype(str))  # Printing the sentiment score of the tweets before preprocessing
 
     df = tweets
-
+    
     # Dumping the cleaned tweets to a CSV file
     print('Writing to CSV file...')
     if (get_sentiment_before_preprocessing):
 
         before_preprocessing_sentiment.to_csv('./data/Complete.csv')
+        before_preprocessing_sentiment.to_json('./data/Complete.json')
         return after_preprocessing_sentiment
     else:
         after_preprocessing_sentiment.to_csv('./data/Complete.csv')
+        after_preprocessing_sentiment.to_json('./data/Complete.json')
+
         return before_preprocessing_sentiment
 
 
