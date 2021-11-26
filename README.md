@@ -1,4 +1,3 @@
-<p align="center">
   <h2> Word Frequency Analysis </h2>
   <h2> Current Sentiment Per Search Term </h2>
 <h2> Topic Analysis </h2>
@@ -7,7 +6,7 @@
 <img src="./data/2.png?raw=true" width="30%" alt="Visualization" width="30%">
 <img src="./data/1.png?raw=true" width="30%" alt="Visualization" width="30%">
 
-</p>
+
 
 <!-- <h1> Output Screenshots</h1> 
 
