@@ -35,15 +35,12 @@ Farley, Douglas</li>
  </tr>                </table>             </td>          </tr>                 </table>
 
 <div class="show-content user_content clearfix enhanced">
-    <h1> <strong> Output Screenshots</h1> </strong>
-</h1>
-    <h2> Word Frequency Analysis </h2>
-      <h2> Current Sentiment Per Search Term </h2>
-    <h2> Topic Analysis </h2>
+
+<h2> <strong> Topic, Word Frequency, and Sentiment Analysis </strong></h2>
     
 <img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/3.png?raw=true" width="45%" title="Visualization" width="45%"><img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/2.png?raw=true"   alt="Visualization" width="50%">
     
-<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/1.png?raw=true" width="100%" alt="Visualization" >
+<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/1.png?raw=true" width="50%" alt="Visualization" >
     
     
     
