@@ -6,7 +6,7 @@
 
 <h2 align="center"><b>Team:</b></h2>
 <div >
-<ol  >
+<ol- align="center"  >
 <li>
 Coupet, Alexa
 </li>
@@ -18,7 +18,7 @@ Farley, Douglas</li>
 <li>
                     Marzouq, Murtadha 
 </li>
-</ol>                    
+</ol->                    
 </div>
 
 
@@ -26,7 +26,7 @@ Farley, Douglas</li>
 
 <h2>Note:</h2> <b> Run The Analysis Python File</b>
 
- <table border="1" width = "100%">                    <tr>             <td>                <table border = "1" width = "100%">                   <tr>                      <th>Task</th>                      <th>Framework</th>                   </tr>                   <tr>                      <td>Step 1: Loading data</td>                      <td><a href="https://github.com/twintproject/twint">Twint</a></td>                   </tr>                   <tr>                      <td>Step 2: Pre-processing the tweets/articles </td>                      <td><a href="https://spacy.io/usage/v3-2">SpaCy</a></td>   
+ <table   align="center"  border="1" width = "100%">                    <tr>             <td>                <table border = "1" width = "100%">                   <tr>                      <th>Task</th>                      <th>Framework</th>                   </tr>                   <tr>                      <td>Step 1: Loading data</td>                      <td><a href="https://github.com/twintproject/twint">Twint</a></td>                   </tr>                   <tr>                      <td>Step 2: Pre-processing the tweets/articles </td>                      <td><a href="https://spacy.io/usage/v3-2">SpaCy</a></td>   
  <tr>
  <td> Step 3: Data analysis and visualization</td> 
   <td><a href="https://pandas.pydata.org/">Pandas</a></td> 
@@ -41,8 +41,7 @@ Farley, Douglas</li>
 
 <h2> <strong> Topic, Word Frequency, and Sentiment Analysis </strong></h2>
 <p align="center">
-<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/3.png?raw=true" width="45%" title="Visualization" width="45%"><img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/2.png?raw=true"   alt="Visualization" width="50%">
-    
+<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/3.png?raw=true" width="45%" title="Visualization" width="45%"><img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/2.png?raw=true" alt="Visualization" width="50%">
 <img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/1.png?raw=true" width="50%" alt="Visualization" >        
 </p>
       
