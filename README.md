@@ -5,26 +5,21 @@
 
 
 <h2 align="center"><b>Team:</b></h2>
-<ol align="center"  >
-<li align="center">
+<h4 align="center">
 Coupet, Alexa
-</li>
-<li align="center">
+</h4>
+<h4 align="center">
 Marsh, Steven
-</li>
-<li>
-Farley, Douglas</li>
-<li>
+</h4><h4 align="center">Farley, Douglas</h4><h4 align="center">
                     Marzouq, Murtadha 
-</li>
-</ol>                    
+</h4>
 
 
-
-
+ - [ ] Loading Data
+ - [ ] Analysis 
 <h2 align="center">Notes:</h2>
 
- <table   align="center"  border="1" width = "100%">                    <tr>             <td>                <table border = "1" width = "100%">                   <tr>                      <th>Task</th>                      <th>Framework</th>                   </tr>                   <tr>                      <td>Step 1: Loading data</td>                      <td><a href="https://github.com/twintproject/twint">Twint</a></td>                   </tr>                   <tr>                      <td>Step 2: Pre-processing the tweets/articles </td>                      <td><a href="https://spacy.io/usage/v3-2">SpaCy</a></td>   
+ <table   align="center"   border="1" width = "100%">                    <tr>             <td>                <table border = "1" width = "100%">                   <tr>                      <th>Task</th>                      <th>Framework</th>                   </tr>                   <tr>                      <td>Step 1: Loading data</td>                      <td><a href="https://github.com/twintproject/twint">Twint</a></td>                   </tr>                   <tr>                      <td>Step 2: Pre-processing the tweets/articles </td>                      <td><a href="https://spacy.io/usage/v3-2">SpaCy</a></td>   
  <tr>
  <td> Step 3: Data analysis and visualization</td> 
   <td><a href="https://pandas.pydata.org/">Pandas</a></td> 
@@ -35,16 +30,16 @@ Farley, Douglas</li>
  </tr>
  </tr>                </table>             </td>          </tr>                 </table>
 
-<div class="show-content user_content clearfix enhanced">
-
+----
 <h2> <strong> Topic, Word Frequency, and Sentiment Analysis </strong></h2>
 <p align="center">
-<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/3.png?raw=true" width="45%" title="Visualization" width="45%"><img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/2.png?raw=true" alt="Visualization" width="50%">
+<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/3.png?raw=true" width="60%" title="Visualization" width="45%">
+<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/2.png?raw=true" alt="Visualization" width="80%">
 <img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/1.png?raw=true" width="50%" alt="Visualization" >        
 </p>
       
   
-<h2><b>Resources Used:</b></h2>
+<h4 align="center"><b>Resources Used:</b></h4>
 <ol>
 <li>
 <p> https://github.com/twintproject/twint/wiki/Configuration </p>
@@ -62,5 +57,4 @@ Farley, Douglas</li>
 </li>
 
 </ol>
-</div>
 
