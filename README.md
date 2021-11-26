@@ -1,3 +1,6 @@
+![alt text](./data/Top%2010%20Topics%20Based%20On%20Search%20Term.png?raw=true "Title")
+![plot](./data/Top%2010%20Topics%20Based%20On%20Search%20Term.png)
+
 <h2 style="color: purple; text-align:center">Data Mining Group Project </h2>
 
 <h4 style="color: green; text-align:center"><b>Team:</b></h4>
@@ -54,9 +57,6 @@ Farley, Douglas</li>
 <p> https://pub.towardsai.net/tweet-topic-modeling-part-3-using-short-text-topic-modeling-on-tweets-bc969a827fef </p>
 </li>
 
-  <h1> output Screenshots</h1>
-![alt text](./data/Top%2010%20Topics%20Based%20On%20Search%20Term.png?raw=true "Title")
-![plot](./data/Top%2010%20Topics%20Based%20On%20Search%20Term.png)
   </ol>
 <p><strong>Step 1: Loading data (3 pts)</strong></p>
 <p>Successfully load the data you choose to analyze into memory.</p>
