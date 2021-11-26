@@ -1,7 +1,10 @@
+ 
 <h1>Data Mining Group Project </h1>
 
+----
 
-<h2 ><b>Team:</b></h2>
+
+<h2><b>Team:</b></h2>
 <div >
 <ol  >
 <li>
