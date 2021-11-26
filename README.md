@@ -1,7 +1,9 @@
-<p align="center">
-  <img src="./data/3.png?raw=true" width="350" title="Visualization">
-  <img src="./data/2.png?raw=true" width="350" alt="Visualization">
-</p>
+<h3 align="center">
+<img src="./data/3.png?raw=true" width="350" title="Visualization">
+<img src="./data/2.png?raw=true" width="350" alt="Visualization">
+<img src="./data/1.png?raw=true" width="350" alt="Visualization">
+
+</h3>
 
 <h1> Output Screenshots</h1> 
 
