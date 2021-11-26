@@ -1,10 +1,10 @@
  
-<h1>Data Mining Group Project </h1>
+<h1 align="center">Data Mining Group Project </h1>
 
 ----
 
 
-<h2><b>Team:</b></h2>
+<h2 align="center"><b>Team:</b></h2>
 <div >
 <ol  >
 <li>
@@ -40,13 +40,11 @@ Farley, Douglas</li>
 <div class="show-content user_content clearfix enhanced">
 
 <h2> <strong> Topic, Word Frequency, and Sentiment Analysis </strong></h2>
-    
+<p align="center">
 <img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/3.png?raw=true" width="45%" title="Visualization" width="45%"><img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/2.png?raw=true"   alt="Visualization" width="50%">
     
-<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/1.png?raw=true" width="50%" alt="Visualization" >
-    
-    
-    
+<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/1.png?raw=true" width="50%" alt="Visualization" >        
+</p>
       
   
 <h2><b>Resources Used:</b></h2>
