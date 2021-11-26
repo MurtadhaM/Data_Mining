@@ -1,6 +1,12 @@
 <h1> Output Screenshots</h1> 
+
+
 ![alt text](./data/3.png?raw=true "Title")
+
+
 ![alt text](./data/2.png?raw=true "Title")
+
+
 ![alt text](./data/1.png?raw=true "Title")
 
 
