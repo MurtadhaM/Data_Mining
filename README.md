@@ -1,10 +1,12 @@
- 
-<h1 align="center">Data Mining Group Project </h1>
+ <h1 align="center"><img src="https://emojis.slackmojis.com/emojis/images/1617692489/27845/digging.gif?1617692489
+" width="30"/> Data Mining Group Project</h1>
+
 
 ----
 
 
-<h2 align="center"><b>Team:</b></h2>
+ <h2 align="center" >Team: <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/></h2>
+
 <h4 align="center">
 Coupet, Alexa
 </h4>
@@ -15,11 +17,9 @@ Marsh, Steven
 </h4>
 
 
- - [ ] Loading Data
- - [ ] Analysis 
-<h2 align="center">Notes:</h2>
+<h2 align="center">Notes: <img align="center" src="https://emojis.slackmojis.com/emojis/images/1561763719/5906/this-is-fine-fire.gif?1561763719"  width="10%"></h2>
 
- <table   align="center"   border="1" width = "100%">                    <tr>             <td>                <table border = "1" width = "100%">                   <tr>                      <th>Task</th>                      <th>Framework</th>                   </tr>                   <tr>                      <td>Step 1: Loading data</td>                      <td><a href="https://github.com/twintproject/twint">Twint</a></td>                   </tr>                   <tr>                      <td>Step 2: Pre-processing the tweets/articles </td>                      <td><a href="https://spacy.io/usage/v3-2">SpaCy</a></td>   
+ <table   align="center"   border="1" width = "100%">                    <tr>             <td>                <table border = "1" width = "100%">                   <tr>                      <th>🎁 Task⭐</th>                      <th>📬 Framework📬</th>                   </tr>                   <tr>                      <td>Step 1: Loading data</td>                      <td><a href="https://github.com/twintproject/twint">Twint</a></td>                   </tr>                   <tr>                      <td>Step 2: Pre-processing the tweets/articles </td>                      <td><a href="https://spacy.io/usage/v3-2">SpaCy</a></td>   
  <tr>
  <td> Step 3: Data analysis and visualization</td> 
   <td><a href="https://pandas.pydata.org/">Pandas</a></td> 
