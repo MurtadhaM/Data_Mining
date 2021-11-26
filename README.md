@@ -55,7 +55,7 @@ Farley, Douglas</li>
 </li>
 
   <h1> output Screenshots</h1>
-![alt text](https://github.com/MurtadhaM/Data_Mining/raw/main/data/Top%2010%20Topics%20Based%20On%20Search%20Term.png)
+![alt text](https://github.com/MurtadhaM/Data_Mining/blob/ddbeb9045eb884fc2fae51f57885f929d7cffa23/data/Top%2010%20Topics%20Based%20On%20Search%20Term.png)
 </ol>
 <p><strong>Step 1: Loading data (3 pts)</strong></p>
 <p>Successfully load the data you choose to analyze into memory.</p>
