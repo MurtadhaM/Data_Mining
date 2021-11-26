@@ -1,5 +1,8 @@
-![alt text](./data/Top%2010%20Topics%20Based%20On%20Search%20Term.png?raw=true "Title")
-![plot](./data/Top%2010%20Topics%20Based%20On%20Search%20Term.png)
+<h1> Output Screenshots</h1> 
+![alt text](./data/3.png?raw=true "Title")
+![alt text](./data/2.png?raw=true "Title")
+![alt text](./data/1.png?raw=true "Title")
+
 
 <h2 style="color: purple; text-align:center">Data Mining Group Project </h2>
 
