@@ -1,12 +1,14 @@
-<h3 align="center">
+<p align="center">
   <h2> Word Frequency Analysis </h2>
 <img src="./data/3.png?raw=true" width="650" title="Visualization">
+<h2> Topic Analysis </h2>
 <img src="./data/2.png?raw=true" width="650" alt="Visualization">
+<h2> Current Sentiment Per Search Term </h2>
 <img src="./data/1.png?raw=true" width="350" alt="Visualization">
 
-</h3>
+</p>
 
-<h1> Output Screenshots</h1> 
+<!-- <h1> Output Screenshots</h1> 
 
 <h2> Word Frequency Analysis </h2>
 
@@ -21,7 +23,7 @@
 
 
 ![alt text](./data/1.png?raw=true "Title")
-
+ -->
 
 <h2 style="color: purple; text-align:center">Data Mining Group Project </h2>
 
