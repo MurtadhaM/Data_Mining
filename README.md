@@ -5,12 +5,11 @@
 
 
 <h2 align="center"><b>Team:</b></h2>
-<div >
-<ol- align="center"  >
-<li>
+<ol align="center"  >
+<li align="center">
 Coupet, Alexa
 </li>
-<li>
+<li align="center">
 Marsh, Steven
 </li>
 <li>
@@ -18,13 +17,12 @@ Farley, Douglas</li>
 <li>
                     Marzouq, Murtadha 
 </li>
-</ol->                    
-</div>
+</ol>                    
 
 
 
 
-<h2>Note:</h2> <b> Run The Analysis Python File</b>
+<h2 align="center">Notes:</h2>
 
  <table   align="center"  border="1" width = "100%">                    <tr>             <td>                <table border = "1" width = "100%">                   <tr>                      <th>Task</th>                      <th>Framework</th>                   </tr>                   <tr>                      <td>Step 1: Loading data</td>                      <td><a href="https://github.com/twintproject/twint">Twint</a></td>                   </tr>                   <tr>                      <td>Step 2: Pre-processing the tweets/articles </td>                      <td><a href="https://spacy.io/usage/v3-2">SpaCy</a></td>   
  <tr>
