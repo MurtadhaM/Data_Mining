@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="./data/3.png?raw=true" width="350" title="Visualization">
+  <img src="./data/2.png?raw=true" width="350" alt="Visualization">
+</p>
+
 <h1> Output Screenshots</h1> 
 
 <h2> Word Frequency Analysis </h2>
