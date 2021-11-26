@@ -1,10 +1,15 @@
 <h1> Output Screenshots</h1> 
 
+<h2> Word Frequency Analysis </h2>
+
 
 ![alt text](./data/3.png?raw=true "Title")
 
+<h2> Topic Analysis </h2>
 
 ![alt text](./data/2.png?raw=true "Title")
+
+<h2> Current Sentiment Per Search Term </h2>
 
 
 ![alt text](./data/1.png?raw=true "Title")
