@@ -20,6 +20,17 @@ from nltk.probability import FreqDist
 tweets = pd.read_csv('data/Completed100.csv')
 d = pd.DataFrame()
 
+def drop_columns(table):
+    table = table.drop(["Unnamed: 0",'id','timezone', 'place','language', 'hashtags',
+       'cashtags', 'user_id', 'username', 'name', 'day', 'hour', 'nlikes',
+       'search','conversation_id', 'created_at', 'user_id_str', 'link', 'urls', 'photos', 'video',
+       'thumbnail', 'retweet','nreplies', 'nretweets', 'quote_url', 'near', 'geo', 'source', 'user_rt_id', 'user_rt',
+       'retweet_id', 'reply_to', 'retweet_date', 'translate', 'trans_src',
+       'trans_dest'],axis = 1)
+    return table
+
+
+# Maje the dataframe to have only the text column
 data_list = tweets.loc[:,"cleaned_tweets"].to_list()
 flat_data_list = [sublist.split(' ') for sublist in data_list  ]
 print(flat_data_list)

@@ -5,6 +5,8 @@
 # Time:   12:00 PM
 # Assignment: Social Media Analysis
 # pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+from datetime import timedelta
+import datetime
 import nest_asyncio
 from nltk.tokenize import word_tokenize
 import nltk
@@ -29,7 +31,7 @@ from numpy import add
 
 # HERE I AM GOING TO PUT SWITCHES TO CHANGE THE OUTPUT
 # Search Term
-search_term = '#DeathPenalty'
+search_term = '#police'
 # Make verbs in the root form
 lemize_text = True
 # Place any additional stop words here
@@ -38,6 +40,8 @@ additional_stop_words = ["amp", "https", "co", "rt", "new", "let",
 # To calculate the sentiment of the tweets before preprocessing
 get_sentiment_before_preprocessing = True
 
+# Start start 
+since_in_day = 5
 
 nest_asyncio.apply()
 nltk.download('wordnet')
@@ -53,20 +57,24 @@ nlp = spacy.load('en_core_web_sm')
 # Step 1: Fetching Tweets
 # Setting up the Tweepy API to pull tweets
 def run_twint():
+    since = (datetime.datetime.now() - timedelta(since_in_day)).strftime('%Y-%m-%d')
+
     c = twint.Config()
     c.To = search_term
-    c.Limit = 5
+    c.Limit = 100
     c.Store_csv = True
+    c.Since = since
     c.Output = 'data/output.csv'
     c.Pandas = True
+    c.Pandas_clean = True
+    c.Lang = "en"
     twint.run.Search(c)
-    df = twint.storage.panda.Tweets_df
-    #print(df['tweet'])
-    
+    df = twint.storage.panda.Tweets_df 
     return df
 
 # setting up global variables
-
+def column_to_string(df, column_name):
+    return df[column_name].astype(str).str.cat(sep=' ')
 
 # Cleaning the tweets Step 2
 
@@ -216,6 +224,9 @@ def main():
     # Applying PreProcessing
     df = run_twint()
     tweets = df
+    # Removing Duplicates
+    tweets = tweets.drop_duplicates(subset='tweet', keep="last")
+
     # Getting the sentiment score of the tweets before preprocessing
     before_preprocessing_sentiment = sentiment_analysis(tweets)
     # print('Sentiment: ' + before_preprocessing_sentiment['Sentiment'].astype(str) + "  Polorization: " + before_preprocessing_sentiment['Polarity'].astype(str))  # Printing the sentiment score of the tweets before preprocessing

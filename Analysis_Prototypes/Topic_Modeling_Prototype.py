@@ -82,6 +82,14 @@ tf = vectorizer.fit_transform(bigrams['cleaned_tweets']).toarray()
 bigram_names = vectorizer.get_feature_names()
 
 
+def drop_columns(table):
+    table = table.drop(["Unnamed: 0",'id','timezone', 'place','language', 'hashtags',
+       'cashtags', 'user_id', 'username', 'name', 'day', 'hour', 'nlikes',
+       'search','conversation_id', 'created_at', 'user_id_str', 'link', 'urls', 'photos', 'video',
+       'thumbnail', 'retweet','nreplies', 'nretweets', 'quote_url', 'near', 'geo', 'source', 'user_rt_id', 'user_rt',
+       'retweet_id', 'reply_to', 'retweet_date', 'translate', 'trans_src',
+       'trans_dest'],axis = 1)
+    return table
 tf = pd.DataFrame(tf)
 tf.columns = [bigram_names]
 sample_tf = tf.head()
