@@ -55,7 +55,7 @@ nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('stopwords')
 os.getcwd()
-nlp = spacy.load('en_core_web_sm')
+nlp = spacy.load('en_core_web_sm') #Likely point of issues when first running this program.
 
 # Step 1: Fetching Tweets
 # Setting up the Tweepy API to pull tweets
