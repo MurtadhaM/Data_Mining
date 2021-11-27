@@ -21,6 +21,7 @@ stop_words = set(stopwords.words('english'))
 data = pd.read_csv('/Users/m/Documents/GitHub/Data_Mining/data/Complete.csv')
 
 
+
 def remove_content(text):
     text = re.sub(r"http\S+", "", text)  # remove urls
     text = re.sub(r'\S+\.com\S+', '', text)  # remove urls
