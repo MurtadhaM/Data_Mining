@@ -65,7 +65,7 @@ text = data.tweet
 # the vectorizer object will be used to transform text to vector form
 # make a new column with only the popular hashtags
 vectorizer = CountVectorizer(
-    max_df=0.9, min_df=12, token_pattern='\w+|\$[\d\.]+|\S+')
+    max_df=0.9, min_df=5, token_pattern='\w+|\$[\d\.]+|\S+')
 tf = vectorizer.fit_transform(df['cleaned_tweets']).toarray()
 print(tf)
 tf_feature_names = vectorizer.get_feature_names()

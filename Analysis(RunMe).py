@@ -5,9 +5,11 @@
 # Time:   12:00 PM
 # Assignment: Social Media Analysis
 # pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+
 from datetime import timedelta
 import datetime
 import nest_asyncio
+from nltk.probability import FreqDist
 from nltk.tokenize import word_tokenize
 import nltk
 from textblob import TextBlob
@@ -31,10 +33,12 @@ from numpy import add
 
 # HERE I AM GOING TO PUT SWITCHES TO CHANGE THE OUTPUT
 # Search Term
-search_term = '#police'
+search_term = '#Police'
 # Make verbs in the root form
 lemize_text = True
 # Place any additional stop words here
+#Choose how many max tweets to return
+limit = 50
 additional_stop_words = ["amp", "https", "co", "rt", "new", "let",
                          "also", "still", "one", "people", "gt"]
 # To calculate the sentiment of the tweets before preprocessing
@@ -50,7 +54,6 @@ nlp = spacy.load('en_core_web_sm')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('stopwords')
-nltk.download('wordnet')
 os.getcwd()
 nlp = spacy.load('en_core_web_sm')
 
@@ -61,7 +64,7 @@ def run_twint():
 
     c = twint.Config()
     c.To = search_term
-    c.Limit = 100
+    c.Limit = limit
     c.Store_csv = True
     c.Since = since
     c.Output = 'data/output.csv'
@@ -174,21 +177,6 @@ def column_to_string(df, column_name):
 
 
 
-# this function counts the number of words in a string
-def get_word_frequency(text):
-    count = Counter()
-    # clean the text
-    cleaner = re.compile("[a-zA-Z_][a-zA-Z0-9-_]+")
-    for line in text:
-        count.update(re.findall(cleaner, line))
-    wordCount = Counter()
-    for ident in count:
-        value = count[ident]
-        words = [x.lower()for x in re.findall("[A-Z]*[a-z]+(?=[A-Z-_]|$)", ident)]
-        wordCount.update({w: value for w in words})
-    for ident, value in wordCount.most_common(10):
-        print( (ident, value))
-    return wordCount
 
 # Sentiment Analysis Part 3
 # Preparing the Data
@@ -264,10 +252,51 @@ final_ouput = main()
 
 # Showing the Polarity of the tweets using a search Term    
 
-df_res_pandas = final_ouput
-sns.distplot(df_res_pandas['Polarity'])
+ 
 
-sns.set(rc={'figure.figsize':(11.7,8.27)})
-plt.title('Distribution of Polarity of Tweets using a Search Term: ' + search_term)
-#plt.show()
+# Part 4 visualizing the data
+
+# visualizing the data Plot Sentiment of the tweets using a search Term 
+def plot_sentiment(table):
+    pal = {"positive":'r', "negative":"g","neutral":"b"}
+    fig1 = sns.displot(table, x="Sentiment", hue="Sentiment", legend=False, palette= pal)
+    fig1.fig.suptitle("Count of tweets by Sentiment",fontsize =15)
+    plt.tight_layout()
+    plt.show()
+
+# This Function is used to plot the frequency of the words in the tweets
+def visualize_term_freq(table):
+    data_list = table.loc[:,"cleaned_tweets"].to_list()
+    flat_data_list = [sublist.split(' ') for sublist in data_list  ]
+    print(flat_data_list)
+    data_count= pd.DataFrame(flat_data_list)
+    data_count= data_count[0].value_counts()
+    freq_count = FreqDist()
+    for words in data_count:
+        freq_count[words] +=1
+        print(words , ' count is ' , freq_count[words])
+
+    # Ploting 
+    data_count = data_count[:20,]
+    plt.figure(figsize=(10,5))
+    sns.barplot(data_count.values, data_count.index, alpha=0.8)
+    plt.title('Top Words Overall')
+    plt.ylabel('Word from Tweet', fontsize=12)
+    plt.xlabel('Count of Words', fontsize=12)
+    plt.show()
+
+
+# Plot Multiple relations of the tweets 
+def plot_tables(table):
+    # Drop the columns that are not needed
+    table = table.drop(['id','timezone', 'place','language', 'hashtags',
+        'cashtags', 'user_id', 'username', 'name', 'day', 'hour', 'nlikes',
+        'search','conversation_id', 'created_at', 'user_id_str', 'link', 'urls', 'photos', 'video',
+        'thumbnail', 'retweet','nreplies', 'nretweets', 'quote_url', 'near', 'geo', 'source', 'user_rt_id', 'user_rt',
+        'retweet_id', 'reply_to', 'retweet_date', 'translate', 'trans_src',
+        'trans_dest'],axis = 1)
+        # Show the remaining table plots 
+    sns.pairplot(table, hue='Sentiment', size=2.5);
+    plt.show()
+    
 
