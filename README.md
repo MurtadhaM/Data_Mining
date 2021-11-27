@@ -2,11 +2,19 @@
 
 
 ----
-<a align="center" href="https://colab.research.google.com/drive/10mmrxCzX9wfOpWzyWYeJcaXhqgcAYRoE?usp=sharing" >
-<h2 align="center">  Google Collab Notebook  <img   align="center"src="data/5.png" width="20%"/>
-</h2></a>
+<a href="https://colab.research.google.com/drive/10mmrxCzX9wfOpWzyWYeJcaXhqgcAYRoE?usp=sharing">
+<p align="center">
+Google Collab
+<br></br>
+ <img src="https://colab.research.google.com/img/colab_favicon_256px.png" width="100"/>
+  
+ </p>
 
- <h2 align="center" >Team: <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/></h2>
+</a>
+
+
+ </a>
+ <h2 align="center" >Team :</h2>
 
 <h4 align="center">
 Coupet, Alexa
