@@ -63,7 +63,7 @@ def run_twint():
     since = (datetime.datetime.now() - timedelta(since_in_day)).strftime('%Y-%m-%d')
 
     c = twint.Config()
-    c.To = search_term
+    c.Search = search_term
     c.Limit = limit
     c.Store_csv = True
     c.Since = since
