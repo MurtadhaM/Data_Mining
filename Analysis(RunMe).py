@@ -8,17 +8,17 @@
 
 from datetime import timedelta
 import datetime
-import nest_asyncio
+import nest_asyncio #Package used to prevent a runtime error in Jupyter Notebooks.
 from nltk.probability import FreqDist
 from nltk.tokenize import word_tokenize
 import nltk
 from textblob import TextBlob
 import spacy
 import string
-import seaborn as sns
-import twint
+import seaborn as sns #Visualization tool used.
+import twint #Package used to collect Twitter data without a Twitter developer account.
 import matplotlib.pyplot as plt
-import pandas as pd
+import pandas as pd #Used to put data into dataframe.
 import sklearn
 from textblob import TextBlob, Word
 import textblob
@@ -60,16 +60,22 @@ nlp = spacy.load('en_core_web_sm')
 # Step 1: Fetching Tweets
 # Setting up the Tweepy API to pull tweets
 def run_twint():
+    #This is used to start pulling Tweets from the most recent time.
     since = (datetime.datetime.now() - timedelta(since_in_day)).strftime('%Y-%m-%d')
 
     c = twint.Config()
+    #Keyword search for our def.
     c.Search = search_term
+    #This is the number of Tweets we want to get in our search.
     c.Limit = limit
+    #We want the search data to be saved into a CSV file.
     c.Store_csv = True
     c.Since = since
+    #Name of the file we save our data to.
     c.Output = 'data/output.csv'
     c.Pandas = True
     c.Pandas_clean = True
+    #This is limiting the search to only English. 
     c.Lang = "en"
     twint.run.Search(c)
     df = twint.storage.panda.Tweets_df 
