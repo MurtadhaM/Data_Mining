@@ -32,12 +32,13 @@ Marsh, Steven
 ----
 <h2> <strong> Topic, Word Frequency, and Sentiment Analysis </strong></h2>
 <p align="center">
+<img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/5.png?raw=true" width="60%" title="Visualization" width="45%">
 <img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/3.png?raw=true" width="60%" title="Visualization" width="45%">
 <img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/4.png?raw=true" width="60%" title="Visualization" width="45%">
 <img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/2.png?raw=true" alt="Visualization" width="80%">
 <img src="https://github.com/MurtadhaM/Data_Mining/raw/main/data/1.png?raw=true" width="50%" alt="Visualization" >        
 </p>
-      
+  
   
 <h4 align="center"><b>Resources Used:</b></h4>
 <ol>
