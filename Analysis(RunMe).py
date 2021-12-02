@@ -93,7 +93,7 @@ def write_tweets_to_text_file(text_data):
 
 
 # Tokenization (2pt)
-
+#We tokenise the words because we can not give a sentiment analysis if we do not have each word separated. 
 
 def tokenize(text):
     print('Tokenizing...')
