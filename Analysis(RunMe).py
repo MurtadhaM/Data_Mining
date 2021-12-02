@@ -93,7 +93,7 @@ def write_tweets_to_text_file(text_data):
 
 
 # Tokenization (2pt)
-#We tokenise the words because we can not give a sentiment analysis if we do not have each word separated. 
+# We tokenise the words because we can not give a sentiment analysis if we do not have each word separated. 
 
 def tokenize(text):
     print('Tokenizing...')
@@ -104,6 +104,8 @@ def tokenize(text):
 
 
 # Lemmatization (2pt)
+# Lemmatization is looking up the dictionary mearning of a word. 
+
 def pos_tag_wordnet(tagged_tokens):
     tag_map = {'j': wordnet.ADJ, 'v': wordnet.VERB,
                'n': wordnet.NOUN, 'r': wordnet.ADV}
@@ -136,6 +138,10 @@ def lem(text):
 
 
 # Cleaning the tweets Step 2
+# In the punctuation value to understand what is going on you will have to read up on regex commands. This is getting rid of
+# punctuation, special charatcters and emojis contained in the tweets and in the text = re.sub is doing a similar task but
+# taking the extra step to clean the data.
+
 def clean_tweets_tb(input):
     punctuation = '!"$%&\'()*+,-./:;<=>?[\\]^_`{|}~•@'
     text = str(input)
