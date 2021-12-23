@@ -44,7 +44,7 @@ additional_stop_words = ["amp", "https", "co", "rt", "new", "let",
 # To calculate the sentiment of the tweets before preprocessing
 get_sentiment_before_preprocessing = True
 
-# Start start 
+# Start start
 since_in_day = 5
 
 nest_asyncio.apply()
@@ -75,10 +75,10 @@ def run_twint():
     c.Output = 'data/output.csv'
     c.Pandas = True
     c.Pandas_clean = True
-    #This is limiting the search to only English. 
+    #This is limiting the search to only English.
     c.Lang = "en"
     twint.run.Search(c)
-    df = twint.storage.panda.Tweets_df 
+    df = twint.storage.panda.Tweets_df
     return df
 
 # setting up global variables
@@ -93,7 +93,7 @@ def write_tweets_to_text_file(text_data):
 
 
 # Tokenization (2pt)
-# We tokenise the words because we can not give a sentiment analysis if we do not have each word separated. 
+# We tokenise the words because we can not give a sentiment analysis if we do not have each word separated.
 
 def tokenize(text):
     print('Tokenizing...')
@@ -104,7 +104,7 @@ def tokenize(text):
 
 
 # Lemmatization (2pt)
-# Lemmatization is looking up the dictionary mearning of a word. 
+# Lemmatization is looking up the dictionary mearning of a word.
 
 def pos_tag_wordnet(tagged_tokens):
     tag_map = {'j': wordnet.ADJ, 'v': wordnet.VERB,
@@ -262,13 +262,13 @@ def main():
 # Running the main function
 final_ouput = main()
 
-# Showing the Polarity of the tweets using a search Term    
+# Showing the Polarity of the tweets using a search Term
 
   
 
 # Part 4 visualizing the data
 
-# visualizing the data Plot Sentiment of the tweets using a search Term 
+# visualizing the data Plot Sentiment of the tweets using a search Term
 def plot_sentiment(table):
     pal = {"positive":'r', "negative":"g","neutral":"b"}
     fig1 = sns.displot(table, x="Sentiment", hue="Sentiment", legend=False, palette= pal)
@@ -288,7 +288,7 @@ def visualize_term_freq(table):
         freq_count[words] +=1
         print(words , ' count is ' , freq_count[words])
 
-    # Ploting 
+    # Ploting
     data_count = data_count[:20,]
     plt.figure(figsize=(10,5))
     sns.barplot(data_count.values, data_count.index, alpha=0.8)
@@ -298,7 +298,7 @@ def visualize_term_freq(table):
     plt.show()
 
 
-# Plot Multiple relations of the tweets 
+# Plot Multiple relations of the tweets
 def plot_tables(table):
     # Drop the columns that are not needed
     table = table.drop(['id','timezone', 'place','language', 'hashtags',
@@ -307,7 +307,7 @@ def plot_tables(table):
         'thumbnail', 'retweet','nreplies', 'nretweets', 'quote_url', 'near', 'geo', 'source', 'user_rt_id', 'user_rt',
         'retweet_id', 'reply_to', 'retweet_date', 'translate', 'trans_src',
         'trans_dest'],axis = 1)
-        # Show the remaining table plots 
+        # Show the remaining table plots
     sns.pairplot(table, hue='Sentiment', size=2.5);
     plt.show()
     
