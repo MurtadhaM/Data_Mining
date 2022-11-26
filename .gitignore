@@ -1,6 +1,8 @@
 # OS X
 .DS_Store
 .DS_Store
+
+/node_modules/
 ._*
 node_modules 
 # Windows
